@@ -14,7 +14,7 @@ export class CPanelInfoComponent {
   constructor(public dialog: MatDialog) { }
 
 
-toggleModal() {
+  toggleModal() {
     this.toggle = !this.toggle;
     this.buttonText = this.toggle ? 'Close Modal' : 'Find out more';
   }
@@ -22,10 +22,6 @@ toggleModal() {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
       width: '400px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 }

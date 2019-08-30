@@ -9,13 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class FlikrComponent implements OnInit {
 
+  toggle = false;
+  buttonText = 'Show Pictures';
   data = [];
+
   constructor(private flikrService: FlikrService) { }
 
   ngOnInit() {
   }
 
   getPictures() {
+    this.toggle = !this.toggle;
+    this.buttonText = this.toggle ? 'Hide Pictures' : 'Show Pictures';
     this.flikrService.getPictures()
     .subscribe(data => this.data = data);
   }

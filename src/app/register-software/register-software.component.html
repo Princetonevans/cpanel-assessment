@@ -1,8 +1,9 @@
-	<h2>Part 1: Register your cPanel Software</h2>
+<h2>Part 1: Register your cPanel Software</h2>
 
-  <form class="example-form" [formGroup]="myForm" (ngSubmit)="submit()">
-  <mat-form-field type="text" class="example-full-width">
-    <input matInput placeholder="User Name" formControlName="name" required>
+<form class="example-form" #formDirective="ngForm" [formGroup]="myForm" (ngSubmit)="register(formDirective)">
+
+	<mat-form-field type="text" class="example-full-width">
+		<input matInput placeholder="User Name" formControlName="name" required>
     <mat-error *ngIf="myForm.controls.name.errors?.required">Name is required</mat-error>
   </mat-form-field>
   
@@ -21,7 +22,9 @@
     <input type="text" matInput placeholder="Geographic Location" formControlName="location" required>
     <mat-error *ngIf="myForm.controls.location.errors?.required">Location is required</mat-error>
   </mat-form-field>
-  <div class="btn">
-  <button [disabled]="!myForm.valid" mat-raised-button  color="primary">Register</button>
+
+  <div class="register">
+    <button class="button" [disabled]="!myForm.valid" mat-raised-button  color="primary">Register</button>
   </div>
+
 </form>

@@ -1,10 +1,22 @@
 <h2>Part 4: Flickr Photos</h2>
 <p>Click on the button to see where it&#39;s _______.</p>
-<button mat-raised-button  color="primary"  (click)="getPictures()">Show Pictures</button>
 
-<div *ngFor="let pic of data.items | async">
-  
-  <!-- <p>{{pic.items | json}}</p> -->
-  <p>{{pic.title }}</p>
-  <p>{{pic.description}}</p>
+<button class="button" mat-raised-button  color="primary"  (click)="getPictures()">{{buttonText}}</button>
+
+<div *ngIf="toggle">
+  <div class="container">
+    <div *ngFor="let pic of data" class="imgBox">
+      <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+      </mat-card-header>
+      <img mat-card-image [src]="pic.media.m" style="width: 200px; height: 200px;">
+      <mat-card-content>
+        <p class="description">
+          {{pic.tags}}
+        </p>
+      </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
