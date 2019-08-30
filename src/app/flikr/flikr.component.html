@@ -1,0 +1,10 @@
+<h2>Part 4: Flickr Photos</h2>
+<p>Click on the button to see where it&#39;s _______.</p>
+<button mat-raised-button  color="primary"  (click)="getPictures()">Show Pictures</button>
+
+<div *ngFor="let pic of data.items | async">
+  
+  <!-- <p>{{pic.items | json}}</p> -->
+  <p>{{pic.title }}</p>
+  <p>{{pic.description}}</p>
+</div>
